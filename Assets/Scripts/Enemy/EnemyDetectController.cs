@@ -11,7 +11,7 @@ public class EnemyDetectController : MonoBehaviour
         if(detect == false)
         {
             Debug.Log("Player detect");
-            detect = true;
+            //detect = true;
         }
    }
 }

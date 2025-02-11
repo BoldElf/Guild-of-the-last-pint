@@ -11,8 +11,15 @@ public class EnemyDetect : MonoBehaviour
     [Inject] private EnemyDetectController enemyDetectController;
 
     [SerializeField] private int distance = 33;
+    [SerializeField] private LineRenderer lineRenderer;
 
     private int layer = ~0; // Проверка всех слоев.
+
+    private void Start()
+    {
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.2f;
+    }
 
     private void Update()
     {
@@ -23,14 +30,17 @@ public class EnemyDetect : MonoBehaviour
         // Проверка попадания
         if (Physics.Raycast(ray, out hit, distance, layer, QueryTriggerInteraction.Ignore))
         {
-            Debug.Log(hit.collider.gameObject);                 // DBG
+            //Debug.Log(hit.collider.gameObject);                 // DBG
 
             if (hit.collider.gameObject.GetComponent<EnemyDetector>() == true)
             {
                 EnemyDetectPlayer();
             }
 
-            Debug.DrawLine(ray.origin, hit.point, Color.red);   // DBG
+            //Debug.DrawLine(ray.origin, hit.point, Color.red);   // DBG
+
+            lineRenderer.SetPosition(0, ray.origin);
+            lineRenderer.SetPosition(1, hit.point);
         }
     }
 
