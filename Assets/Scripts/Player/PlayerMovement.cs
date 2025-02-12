@@ -4,9 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float collisionOffset = 0.5f; 
-    [SerializeField] private Transform face; 
-    [SerializeField] private Vector3 boxSize = new Vector3(0.5f, 1f, 0.5f); 
+    [SerializeField] private float collisionOffset = 0.5f;
+    [SerializeField] private Vector3 boxSize = new Vector3(0.5f, 1f, 0.5f);
 
     void Update()
     {
@@ -25,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
                 transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
             }
         }
-
-        //Œ“Œ¡–¿∆≈Õ». Õ≈ «¿¡€“‹ ”¡–¿“‹
-        Debug.DrawRay(face.position, movement * collisionOffset, Color.red);
     }
 
     private bool CanMove(Vector3 direction)
@@ -36,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         return !Physics.BoxCast(transform.position, boxSize / 2, direction, out hit, Quaternion.identity, collisionOffset);
     }
 
-    //Õ≈ «¿¡€“‹ ”¡–¿“‹/»— Àﬁ◊»“‹
+    // Õ≈ «¿¡€“‹ ”¡–¿“‹
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
