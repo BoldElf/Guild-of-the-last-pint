@@ -4,8 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
-    [SerializeField] private float collisionOffset = 0.5f;
     [SerializeField] private Vector3 boxSize = new Vector3(0.5f, 1f, 0.5f);
+    [SerializeField] private Animator animator; // Аниматор игрока
 
     void Update()
     {
@@ -14,7 +14,15 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical).normalized;
 
-        if (movement != Vector3.zero)
+        bool isMoving = movement != Vector3.zero;
+
+        // Управляем анимацией бега
+        if (animator != null)
+        {
+            animator.SetBool("isRunning", isMoving);
+        }
+
+        if (isMoving)
         {
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -28,11 +36,11 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanMove(Vector3 direction)
     {
-        RaycastHit hit;
-        return !Physics.BoxCast(transform.position, boxSize / 2, direction, out hit, Quaternion.identity, collisionOffset);
+        // Проверяем наличие препятствий в направлении движения
+        return !Physics.BoxCast(transform.position, boxSize / 2, direction, Quaternion.identity, moveSpeed * Time.deltaTime);
     }
 
-    // НЕ ЗАБЫТЬ УБРАТЬ
+    // Для визуализации области проверки в редакторе
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -552,6 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOccupied: 0
+  animator: {fileID: 0}
 --- !u!65 &944810379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -655,7 +656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 5
-  collisionOffset: 0.5
   boxSize: {x: 1.1, y: 1.1, z: 1.1}
 --- !u!4 &1144578306
 Transform:
@@ -689,6 +689,7 @@ MonoBehaviour:
   interactionRange: 1
   face: {fileID: 463825068}
   playerModel: {fileID: 857075971}
+  playerAnimator: {fileID: 0}
 --- !u!1 &1671316653
 GameObject:
   m_ObjectHideFlags: 0
