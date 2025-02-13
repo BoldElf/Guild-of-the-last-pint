@@ -6,7 +6,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionRange = 2f;
     [SerializeField] private Transform face;
     [SerializeField] private GameObject playerModel;
-    [SerializeField] private Animator playerAnimator; // Аниматор игрока
+    [SerializeField] private Animator playerAnimator; 
 
     private bool isInteracting = false;
 
@@ -26,7 +26,6 @@ public class PlayerInteraction : MonoBehaviour
                     hidingSpot.Interact();
                     Debug.Log("Взаимодействие с объектом: " + hit.collider.name);
 
-                    // Определяем новое состояние взаимодействия
                     if (hidingSpot.isOccupied)
                     {
                         StartCoroutine(HideInSpot());
@@ -36,10 +35,6 @@ public class PlayerInteraction : MonoBehaviour
                         StartCoroutine(ExitFromSpot());
                     }
                 }
-                else
-                {
-                    Debug.Log("Объект не является местом для укрытия: " + hit.collider.name);
-                }
             }
         }
 
@@ -48,48 +43,38 @@ public class PlayerInteraction : MonoBehaviour
 
     private IEnumerator HideInSpot()
     {
-        // Сразу отключаем управление движением
         GetComponent<PlayerMovement>().enabled = false;
         isInteracting = true;
 
-        // Проигрываем анимацию игрока
         if (playerAnimator != null)
         {
             playerAnimator.SetTrigger("Interact");
         }
 
-        // Ждем завершения анимации игрока
-        yield return new WaitForSeconds(1.0f); // Замените на реальную длительность анимации
+        yield return new WaitForSeconds(1.0f);
 
-        // Отключаем модель игрока
         playerModel.SetActive(false);
 
         Debug.Log("Игрок спрятался.");
 
-        // Сбрасываем флаг после завершения взаимодействия
         isInteracting = false;
     }
 
     private IEnumerator ExitFromSpot()
     {
-        // Проигрываем анимацию игрока
         if (playerAnimator != null)
         {
             playerAnimator.SetTrigger("Interact");
         }
 
-        // Ждем завершения анимации игрока
-        yield return new WaitForSeconds(1.0f); // Замените на реальную длительность анимации
+        yield return new WaitForSeconds(1.0f); 
 
-        // Включаем модель игрока
         playerModel.SetActive(true);
 
-        // Включаем управление движением
         GetComponent<PlayerMovement>().enabled = true;
 
         Debug.Log("Игрок вышел из укрытия.");
 
-        // Сбрасываем флаг после завершения взаимодействия
         isInteracting = false;
     }
 }
