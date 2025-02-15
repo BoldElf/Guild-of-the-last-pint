@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private Vector3 boxSize = new Vector3(0.5f, 1f, 0.5f);
+    [SerializeField] private Vector3 boxOffset = Vector3.zero; 
     [SerializeField] private Animator animator;
 
     void Update()
@@ -35,12 +36,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanMove(Vector3 direction)
     {
-        return !Physics.BoxCast(transform.position, boxSize / 2, direction, Quaternion.identity, moveSpeed * Time.deltaTime);
+        Vector3 boxPosition = transform.position + boxOffset;
+        return !Physics.BoxCast(boxPosition, boxSize / 2, direction, Quaternion.identity, moveSpeed * Time.deltaTime);
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, boxSize);
+        Gizmos.DrawWireCube(transform.position + boxOffset, boxSize);
     }
 }
