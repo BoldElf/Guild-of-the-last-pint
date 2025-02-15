@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2025844148937114439}
   - component: {fileID: 2818110457731569902}
   - component: {fileID: 4034028042093030370}
+  - component: {fileID: 5998072362437487351}
   m_Layer: 0
   m_Name: seat_1
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5998072362437487351
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149690892360900015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.40869004, y: 0.25135943, z: 0.020862512}
+  m_Center: {x: -0.0006945729, y: -0.0015655532, z: -0.0016341587}
