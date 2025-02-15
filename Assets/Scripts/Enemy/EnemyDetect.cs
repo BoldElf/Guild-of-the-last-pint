@@ -37,7 +37,7 @@ public class EnemyDetect : MonoBehaviour
                 EnemyDetectPlayer();
             }
 
-            //Debug.DrawLine(ray.origin, hit.point, Color.red);   // DBG
+            Debug.DrawLine(ray.origin, hit.point, Color.red);   // DBG
 
             lineRenderer.SetPosition(0, ray.origin);
             lineRenderer.SetPosition(1, hit.point);
