@@ -3,7 +3,7 @@ using UnityEngine;
 public class HidingSpot : MonoBehaviour
 {
     public bool isOccupied = false;
-    public Animator animator; 
+    public Animator animator;
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class HidingSpot : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetTrigger("Interact");
+            animator.SetBool("Interact", isOccupied);
         }
     }
 }
