@@ -8,10 +8,15 @@ public class ProofObjectData : ScriptableObject, IProofObject
 {
     [SerializeField] private string text;
     [SerializeField] private Sprite image;
-
+    [SerializeField] private Image proofObject;
     public string getName()
     {
         return text;
+    }
+
+    public Image GetProofObject()
+    {
+        return proofObject;
     }
 
     public Sprite GetSprite()

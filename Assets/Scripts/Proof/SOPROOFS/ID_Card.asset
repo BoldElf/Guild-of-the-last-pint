@@ -15,3 +15,4 @@ MonoBehaviour:
   text: "\u0412\u043E\u0434\u0438\u0442\u0435\u043B\u044C\u0441\u043A\u0438\u0435
     \u043F\u0440\u0430\u0432\u0430"
   image: {fileID: 21300000, guid: e79203f623e325349ab01461823f9938, type: 3}
+  proofObject: {fileID: 5124971256545925833, guid: 094931d3a08f3ca4fb97c7fedfac18ac, type: 3}

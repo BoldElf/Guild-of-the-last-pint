@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class ProofStorage : MonoBehaviour
@@ -51,6 +52,11 @@ public class ProofStorage : MonoBehaviour
     public Sprite getImage(int index)
     {
         return proofObjects[index].GetSprite();
+    }
+
+    public Image getProofObject(int index)
+    {
+        return proofObjects[index].GetProofObject();
     }
 
     private void getListDebug()

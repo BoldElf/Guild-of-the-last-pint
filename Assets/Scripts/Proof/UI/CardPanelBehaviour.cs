@@ -11,7 +11,8 @@ public class CardPanelBehaviour : MonoBehaviour
     [Inject] private DiContainer container;
     [SerializeField] private Image imageObject;
     [SerializeField] private GameObject namePanelOject;
-    [SerializeField] private Image imageProof;
+
+    private Image imageProof;
 
     private TextMeshProUGUI namePanel;
     private GameObject imageProofObject;
@@ -30,6 +31,11 @@ public class CardPanelBehaviour : MonoBehaviour
     public void setImage(Sprite sprite)
     {
         imageObject.sprite = sprite;
+    }
+
+    public void setProofObject(Image proofObject)
+    {
+        imageProof = proofObject;
     }
 
     public void checkInfo()

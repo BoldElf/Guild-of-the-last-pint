@@ -8,11 +8,19 @@ public class CreatProofPanel : MonoBehaviour
     [Inject] private DiContainer container;
 
     [SerializeField] private GameObject panelPrefab;
+    //[SerializeField] private GameObject panelPrefabForIDCard;
 
     private GameObject panelObject;
 
-    public void CreatPanel()
+    public void CreatPanelDefault()
     {
         panelObject = container.InstantiatePrefab(panelPrefab, gameObject.GetComponentInParent<Canvas>().transform);
     }
+
+    /*
+    public void CreatPanelIDCard()
+    {
+        panelObject = container.InstantiatePrefab(panelPrefabForIDCard, gameObject.GetComponentInParent<Canvas>().transform);
+    }
+    */
 }

@@ -27,6 +27,7 @@ public class ProofPanelBehaviour : MonoBehaviour
             {
                 cardPanelBehaviour.setName(proofStorage.getNameObject(i));
                 cardPanelBehaviour.setImage(proofStorage.getImage(i));
+                cardPanelBehaviour.setProofObject(proofStorage.getProofObject(i));
             }
         }
     }

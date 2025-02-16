@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "\u0410\u043D\u0430\u043B\u0438\u0437\u044B \u0439\u0435\u0442\u0438"
   image: {fileID: 21300000, guid: ef24aa7feef12b145a2929f749ef1edf, type: 3}
+  proofObject: {fileID: 5124971256545925833, guid: 6e9fa6586d6427c4db6ab8ebafd4ebab, type: 3}
