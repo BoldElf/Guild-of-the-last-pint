@@ -9,7 +9,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private float interactionRange = 2f;
     [SerializeField] private Transform face;
     [SerializeField] private GameObject playerModel;
-    [SerializeField] private Animator playerAnimator; 
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Transform bag; // Ссылка на объект Bag
 
     private bool isInteracting = false;
 
@@ -23,6 +24,8 @@ public class PlayerInteraction : MonoBehaviour
             if (Physics.Raycast(ray, out hit, interactionRange))
             {
                 HidingSpot hidingSpot = hit.collider.GetComponent<HidingSpot>();
+                PickupItem pickupItem = hit.collider.GetComponent<PickupItem>();
+                DoorExit doorExit = hit.collider.GetComponent<DoorExit>();
                 ProofObject proofObject = hit.collider.GetComponent<ProofObject>();
 
                 if (hidingSpot != null)
@@ -39,7 +42,20 @@ public class PlayerInteraction : MonoBehaviour
                         StartCoroutine(ExitFromSpot());
                     }
                 }
-                if(proofObject != null)
+                else if (pickupItem != null)
+                {
+                    pickupItem.PickUp();
+                    Debug.Log("Предмет подобран: " + hit.collider.name);
+
+                    // Перемещаем предмет в Bag
+                    hit.collider.transform.SetParent(bag);
+                    hit.collider.transform.localPosition = Vector3.zero;
+                }
+                else if (doorExit != null)
+                {
+                    doorExit.Interact(bag);
+                }
+                else if (proofObject != null)
                 {
                     proofStorage.addProofObject(proofObject.getProofObject());
                     hit.collider.gameObject.SetActive(false);
@@ -76,7 +92,7 @@ public class PlayerInteraction : MonoBehaviour
             playerAnimator.SetTrigger("Interact");
         }
 
-        yield return new WaitForSeconds(1.0f); 
+        yield return new WaitForSeconds(1.0f);
 
         playerModel.SetActive(true);
 
