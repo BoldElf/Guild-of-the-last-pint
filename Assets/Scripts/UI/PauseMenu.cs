@@ -3,15 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseButton; 
+    [SerializeField] private GameObject pausePanel; 
     [SerializeField] private GameObject resumeButton; 
     [SerializeField] private GameObject exitButton; 
     private bool isPaused = false;
 
     private void Start()
     {
-        resumeButton.SetActive(false);
-        exitButton.SetActive(false);
+        pausePanel.SetActive(false);
     }
 
     private void Update()
@@ -28,17 +27,13 @@ public class PauseMenu : MonoBehaviour
 
         if (isPaused)
         {
-            pauseButton.SetActive(false);
-            resumeButton.SetActive(true);
-            exitButton.SetActive(true);
+            pausePanel.SetActive(true);
             Time.timeScale = 0; 
             AudioListener.pause = true; 
         }
         else
         {
-            pauseButton.SetActive(true);
-            resumeButton.SetActive(false);
-            exitButton.SetActive(false);
+            pausePanel.SetActive(false);
             Time.timeScale = 1; 
             AudioListener.pause = false; 
         }
@@ -51,8 +46,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMenu()
     {
-        // Переходим в меню (СЦЕНА МЕНЮ ДОЛЖНА БЫТЬ ПОД ИНДЕКСОМ 0!!!)
-        Time.timeScale = 1;
+        // Переходим в меню (Меню - это сцена с индексом 0)
+        Time.timeScale = 1; 
         AudioListener.pause = false; 
         SceneManager.LoadScene(0);
     }
