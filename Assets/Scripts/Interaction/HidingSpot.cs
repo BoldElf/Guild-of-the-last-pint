@@ -15,7 +15,6 @@ public class HidingSpot : MonoBehaviour
 
     public void Interact()
     {
-        // Инвертируем состояние isOccupied
         bool newState = !isOccupied;
         HandleInteraction(newState);
     }

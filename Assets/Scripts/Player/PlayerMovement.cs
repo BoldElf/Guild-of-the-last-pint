@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private Vector3 boxSize = new Vector3(0.5f, 1f, 0.5f);
-    [SerializeField] private Vector3 boxOffset = Vector3.zero; 
+    [SerializeField] private Vector3 boxOffset = Vector3.zero;
     [SerializeField] private Animator animator;
 
     void Update()
@@ -27,17 +27,31 @@ public class PlayerMovement : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            if (CanMove(movement))
-            {
-                transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-            }
+            Vector3 desiredMovement = movement * moveSpeed * Time.deltaTime;
+            Vector3 actualMovement = AdjustMovementForCollisions(desiredMovement);
+
+            transform.Translate(actualMovement, Space.World);
         }
     }
 
-    private bool CanMove(Vector3 direction)
+    private Vector3 AdjustMovementForCollisions(Vector3 desiredMovement)
     {
         Vector3 boxPosition = transform.position + boxOffset;
-        return !Physics.BoxCast(boxPosition, boxSize / 2, direction, Quaternion.identity, moveSpeed * Time.deltaTime);
+        RaycastHit hit;
+
+        if (Physics.BoxCast(boxPosition, boxSize / 2, desiredMovement, out hit, Quaternion.identity, desiredMovement.magnitude))
+        {
+            Vector3 adjustedMovement = Vector3.ProjectOnPlane(desiredMovement, hit.normal);
+
+            if (Physics.BoxCast(boxPosition, boxSize / 2, adjustedMovement, Quaternion.identity, adjustedMovement.magnitude))
+            {
+                return Vector3.zero;
+            }
+
+            return adjustedMovement;
+        }
+
+        return desiredMovement;
     }
 
     private void OnDrawGizmosSelected()
