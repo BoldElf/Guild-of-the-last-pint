@@ -575,7 +575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &274062639631790876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -645,4 +645,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageObject: {fileID: 7848916409508650337}
   namePanelOject: {fileID: 5021990749768985745}
-  imageProof: {fileID: 5124971256545925833, guid: 688ebb030e1151c47aa6f9c90b2947bc, type: 3}

@@ -5671,11 +5671,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3598402898010895066, guid: a922bd138b60ddf4897068b4f9be8059, type: 3}
+    - target: {fileID: 3787078285605140055, guid: a922bd138b60ddf4897068b4f9be8059, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1690010083}
-    - target: {fileID: 3787078285605140055, guid: a922bd138b60ddf4897068b4f9be8059, type: 3}
+    - target: {fileID: 5607289930190763018, guid: a922bd138b60ddf4897068b4f9be8059, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1690010083}
@@ -20766,6 +20766,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1519726352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5760631560678322998, guid: a922bd138b60ddf4897068b4f9be8059, type: 3}
+  m_PrefabInstance: {fileID: 425290600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1529631481
 GameObject:
   m_ObjectHideFlags: 0
@@ -23367,6 +23372,8 @@ MonoBehaviour:
   pausePanel: {fileID: 1045880090}
   resumeButton: {fileID: 980682982}
   exitButton: {fileID: 163943154}
+  proofsButton: {fileID: 1519726352}
+  proofsPanelPrefab: {fileID: 3508383819358156572, guid: 94aaba513c06a26488c3075922b53e6a, type: 3}
 --- !u!4 &1690010084
 Transform:
   m_ObjectHideFlags: 0
