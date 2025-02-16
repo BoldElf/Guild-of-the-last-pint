@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8390215294281623298}
   - component: {fileID: 5753328251012902956}
   m_Layer: 0
-  m_Name: Panchin
+  m_Name: Biological
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

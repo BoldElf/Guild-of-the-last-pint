@@ -30,4 +30,9 @@ public class ProofPanelBehaviour : MonoBehaviour
             }
         }
     }
+
+    public void DestroyPanel()
+    {
+        Destroy(gameObject);
+    }
 }

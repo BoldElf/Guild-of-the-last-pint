@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using Zenject;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [Inject] private ProofStorage proofStorage;
+
     [SerializeField] private float interactionRange = 2f;
     [SerializeField] private Transform face;
     [SerializeField] private GameObject playerModel;
@@ -20,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
             if (Physics.Raycast(ray, out hit, interactionRange))
             {
                 HidingSpot hidingSpot = hit.collider.GetComponent<HidingSpot>();
+                ProofObject proofObject = hit.collider.GetComponent<ProofObject>();
 
                 if (hidingSpot != null)
                 {
@@ -34,6 +38,11 @@ public class PlayerInteraction : MonoBehaviour
                     {
                         StartCoroutine(ExitFromSpot());
                     }
+                }
+                if(proofObject != null)
+                {
+                    proofStorage.addProofObject(proofObject.getProofObject());
+                    hit.collider.gameObject.SetActive(false);
                 }
             }
         }

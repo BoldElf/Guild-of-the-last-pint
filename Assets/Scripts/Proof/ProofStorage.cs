@@ -7,13 +7,14 @@ public class ProofStorage : MonoBehaviour
 {
     private List<IProofObject> proofObjects = new List<IProofObject>();
 
-    [SerializeField] private GameObject proofData;
-    [SerializeField] private GameObject proofData_02;
+    //[SerializeField] private GameObject proofData;
+    //[SerializeField] private GameObject proofData_02;
 
     private ProofObject thisIsProofObject;
 
     private void Start()
     {
+        /*
         //addProofObject(scriptableObject);
         if(proofData.TryGetComponent<ProofObject>(out thisIsProofObject))
         {
@@ -28,11 +29,13 @@ public class ProofStorage : MonoBehaviour
         }
 
         getListDebug();
+        */
     }
 
     public void addProofObject(IProofObject proofObject)
     {
         proofObjects.Add(proofObject);
+        getListDebug();
     }
 
     public List<IProofObject> getProofObjects()
