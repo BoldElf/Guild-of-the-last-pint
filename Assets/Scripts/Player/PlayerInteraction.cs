@@ -12,9 +12,22 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Transform face;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private Animator playerAnimator;
-    [SerializeField] private Transform bag; // Ссылка на объект Bag
+    [SerializeField] private Transform bag; 
+    [SerializeField] private AudioClip pickupSound; 
+    private AudioSource audioSource;
 
     private bool isInteracting = false;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.clip = pickupSound;
+    }
 
     void Update()
     {
@@ -49,9 +62,10 @@ public class PlayerInteraction : MonoBehaviour
                     pickupItem.PickUp();
                     Debug.Log("Предмет подобран: " + hit.collider.name);
 
-                    // Перемещаем предмет в Bag
                     hit.collider.transform.SetParent(bag);
                     hit.collider.transform.localPosition = Vector3.zero;
+
+                    audioSource.Play();
                 }
                 else if (doorExit != null)
                 {
@@ -62,6 +76,8 @@ public class PlayerInteraction : MonoBehaviour
                     proofStorage.addProofObject(proofObject.getProofObject());
                     showProofController.ShowObject(proofObject);
                     hit.collider.gameObject.SetActive(false);
+
+                    audioSource.Play();
                 }
             }
         }

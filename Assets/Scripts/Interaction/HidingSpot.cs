@@ -4,6 +4,8 @@ public class HidingSpot : MonoBehaviour
 {
     public bool isOccupied = false;
     public Animator animator;
+    [SerializeField] private AudioClip interactionSound; 
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -11,6 +13,14 @@ public class HidingSpot : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.clip = interactionSound;
     }
 
     public void Interact()
@@ -35,6 +45,11 @@ public class HidingSpot : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("Interact", isOccupied);
+        }
+
+        if (interactionSound != null)
+        {
+            audioSource.Play();
         }
     }
 }
