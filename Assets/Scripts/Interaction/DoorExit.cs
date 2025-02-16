@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class DoorExit : MonoBehaviour
 {
-    [SerializeField] private string[] requiredItems; 
+    [SerializeField] private string[] requiredItems;
+    [SerializeField] private CheckProofs checkProofs;
+        
+    
 
     public void Interact(Transform playerBag)
     {
@@ -20,6 +23,7 @@ public class DoorExit : MonoBehaviour
         if (hasAllItems)
         {
             Debug.Log("Вы сбежали.");
+            checkProofs.checkFinal();
         }
         else
         {
