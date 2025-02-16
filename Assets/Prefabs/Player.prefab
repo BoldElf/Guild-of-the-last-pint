@@ -56,7 +56,7 @@ MonoBehaviour:
   boxOffset: {x: 0, y: 0.63, z: 0.13}
   animator: {fileID: 1686442077266258695}
   runningSound: {fileID: 8300000, guid: 7ece7b4b11d460c4db5bbe0cfb06c158, type: 3}
-  enableMovementDelay: 20
+  enableMovementDelay: 9
 --- !u!114 &4787980560067397302
 MonoBehaviour:
   m_ObjectHideFlags: 0
