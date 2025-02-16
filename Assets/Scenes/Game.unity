@@ -3281,11 +3281,6 @@ Transform:
   - {fileID: 865298276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &242742733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6636049088290520227, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-  m_PrefabInstance: {fileID: 1415380820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &243126029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19182,26 +19177,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 383120547837357069, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      propertyPath: boxSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 383120547837357069, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      propertyPath: boxSize.z
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 383120547837357069, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      propertyPath: boxOffset.y
-      value: 0.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 383120547837357069, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      propertyPath: boxOffset.z
-      value: 0.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775865896903195653, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1788219727}
     - target: {fileID: 4267399344447560998, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.39
@@ -19242,21 +19217,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4787980560067397302, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 636668953}
-    - target: {fileID: 4787980560067397302, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      propertyPath: showProofController
-      value: 
-      objectReference: {fileID: 990245328}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6636049088290520227, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1788219730}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
 --- !u!1001 &1425775599
 PrefabInstance:
@@ -25686,23 +25650,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 33
   lineRenderer: {fileID: 1787709495}
---- !u!4 &1788219727 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6294954551798408729, guid: fe4a9c5df8261cd4fa02dc8d11c228cb, type: 3}
-  m_PrefabInstance: {fileID: 1415380820}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1788219730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242742733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730bab2edd315e64485954510583a027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1809172018
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -52,8 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rotationSpeed: 5
-  boxSize: {x: 1.1, y: 1.1, z: 1.1}
-  boxOffset: {x: 0, y: 0, z: 0}
+  boxSize: {x: 1, y: 1.1, z: 0.8}
+  boxOffset: {x: 0, y: 0.63, z: 0.13}
   animator: {fileID: 1686442077266258695}
   runningSound: {fileID: 8300000, guid: 7ece7b4b11d460c4db5bbe0cfb06c158, type: 3}
   enableMovementDelay: 20
@@ -219,13 +219,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364526079764055592}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 8, z: -8}
+  m_LocalRotation: {x: 0.39044833, y: -0.34682897, z: 0.161729, w: 0.8373192}
+  m_LocalPosition: {x: 5, y: 10, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4267399344447560998}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -45, z: 0}
 --- !u!20 &1299735758777782310
 Camera:
   m_ObjectHideFlags: 0
@@ -298,8 +298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1839571348982412348}
-  offset: {x: 0, y: 8, z: -8}
-  rotationOffset: {x: 45, y: 0, z: 0}
+  offset: {x: 5, y: 10, z: -5}
+  rotationOffset: {x: 50, y: -45, z: 0}
 --- !u!1 &975950920634581790
 GameObject:
   m_ObjectHideFlags: 0
