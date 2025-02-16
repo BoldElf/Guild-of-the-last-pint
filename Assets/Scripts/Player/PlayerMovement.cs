@@ -7,6 +7,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 boxSize = new Vector3(0.5f, 1f, 0.5f);
     [SerializeField] private Vector3 boxOffset = Vector3.zero;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip runningSound;
+    private AudioSource audioSource;
+    private bool isPlayingRunningSound = false;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        audioSource.clip = runningSound;
+        audioSource.loop = true; 
+    }
 
     void Update()
     {
@@ -31,6 +46,20 @@ public class PlayerMovement : MonoBehaviour
             Vector3 actualMovement = AdjustMovementForCollisions(desiredMovement);
 
             transform.Translate(actualMovement, Space.World);
+
+            if (!isPlayingRunningSound)
+            {
+                audioSource.Play();
+                isPlayingRunningSound = true;
+            }
+        }
+        else
+        {
+            if (isPlayingRunningSound)
+            {
+                audioSource.Stop();
+                isPlayingRunningSound = false;
+            }
         }
     }
 
