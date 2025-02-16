@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3 boxOffset = Vector3.zero;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioClip runningSound;
+    [SerializeField] private float enableMovementDelay = 5f;
     private AudioSource audioSource;
     private bool isPlayingRunningSound = false;
+    private bool isMovementEnabled = false;
 
     private void Start()
     {
@@ -20,11 +22,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         audioSource.clip = runningSound;
-        audioSource.loop = true; 
+        audioSource.loop = true;
+
+        Invoke("EnableMovement", enableMovementDelay);
     }
 
     void Update()
     {
+        if (!isMovementEnabled)
+        {
+            return;
+        }
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -87,5 +96,10 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + boxOffset, boxSize);
+    }
+
+    private void EnableMovement()
+    {
+        isMovementEnabled = true;
     }
 }
