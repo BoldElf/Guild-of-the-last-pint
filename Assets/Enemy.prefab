@@ -1992,7 +1992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471de024b7d18da41b9b38ab39843cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patroleRote: {fileID: 2930498860547093782, guid: 063d2eb56053c9444b9e16cebf38ce51, type: 3}
+  patrolRoute: {fileID: 2930498860547093782, guid: 063d2eb56053c9444b9e16cebf38ce51, type: 3}
+  movingSound: {fileID: 0}
 --- !u!1 &8001566063852094611
 GameObject:
   m_ObjectHideFlags: 0
