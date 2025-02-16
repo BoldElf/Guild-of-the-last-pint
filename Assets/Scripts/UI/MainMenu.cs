@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuPanel; 
     [SerializeField] private GameObject aboutGamePanel; 
+    [SerializeField] private int gameSceneIndex = 1; 
 
     private void Start()
     {
@@ -14,8 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        // ѕереходим в сцену игры (—цена с индексом 1)
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(gameSceneIndex);
     }
 
     public void ShowAboutGamePanel()
