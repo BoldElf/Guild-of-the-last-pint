@@ -8,10 +8,14 @@ public class EnemyDetectController : MonoBehaviour
 
    public void playerDetect()
    {
+        /*
         if(detect == false)
         {
             Debug.Log("Player detect");
             //detect = true;
         }
-   }
+        */
+
+        Debug.Log("Player detect");
+    }
 }
