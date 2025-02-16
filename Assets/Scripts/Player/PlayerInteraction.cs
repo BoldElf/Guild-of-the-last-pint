@@ -5,6 +5,8 @@ using Zenject;
 public class PlayerInteraction : MonoBehaviour
 {
     [Inject] private ProofStorage proofStorage;
+    [Inject] private DiContainer container;
+    [Inject] private ShowProofControllerOnScene showProofController;
 
     [SerializeField] private float interactionRange = 2f;
     [SerializeField] private Transform face;
@@ -58,6 +60,7 @@ public class PlayerInteraction : MonoBehaviour
                 else if (proofObject != null)
                 {
                     proofStorage.addProofObject(proofObject.getProofObject());
+                    showProofController.ShowObject(proofObject);
                     hit.collider.gameObject.SetActive(false);
                 }
             }
