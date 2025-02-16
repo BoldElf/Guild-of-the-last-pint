@@ -1,11 +1,19 @@
+using System.Timers;
 using UnityEngine;
+using Zenject;
 
 public class DoorExit : MonoBehaviour
 {
     [SerializeField] private string[] requiredItems;
     [SerializeField] private CheckProofs checkProofs;
-        
-    
+    [SerializeField] private GameObject noKeys;
+    [SerializeField] private Canvas canvas;
+    [Inject] DiContainer container;
+
+    private GameObject noKeysPanel;
+
+    private bool startTimer = false;
+    private float timer = 0f;
 
     public void Interact(Transform playerBag)
     {
@@ -27,7 +35,23 @@ public class DoorExit : MonoBehaviour
         }
         else
         {
-            Debug.Log("Вам чего-то не хватает.");
+            noKeysPanel = container.InstantiatePrefab(noKeys, canvas.transform);
+            startTimer = true;
+        }
+    }
+
+    private void Update()
+    {
+        if(startTimer == true)
+        {
+            timer += Time.deltaTime;
+
+            if(timer >= 3f)
+            {
+                Destroy(noKeysPanel);
+                timer = 0;
+                startTimer = false;
+            }
         }
     }
 }

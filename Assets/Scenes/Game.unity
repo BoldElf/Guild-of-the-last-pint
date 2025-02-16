@@ -32848,6 +32848,8 @@ MonoBehaviour:
   - Key 1
   - Key 2
   checkProofs: {fileID: 1521469944}
+  noKeys: {fileID: 4674488434065685915, guid: 10aaa7d36022d4146b8302ddee16eb87, type: 3}
+  canvas: {fileID: 636668953}
 --- !u!1 &6077076493433052079
 GameObject:
   m_ObjectHideFlags: 0
